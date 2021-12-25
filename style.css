@@ -1,0 +1,4 @@
+*{
+    box-sizing: border-box;
+    background: linear-gradient(to right, #ff105f, #ffad06); /* took this from my login-form*/
+}
