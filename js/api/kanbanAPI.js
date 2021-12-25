@@ -3,12 +3,32 @@
 */
 
 export default class kanbanAPI{
+    static getItems(columnId){
+        const column = read().find(column => column.id == columnId);
 
+        if (!column) {
+            return [];
+        }
+        return column.items;
+    }
 }
 /* 
-- code line 6 will allow us to import the class into the other js files
+- code line 5 
+    - will allow us to import the class into the other js files
 - line 6 will contain a bunch of static methods
 - will contain functions to interact w/ the local storage directly
+- code line 5:
+    - dealing with the api that will be getting all of the items inside a particular column
+    - static getItems(columnId){} --> static will get items then pass through column Id 
+        - this will simply get a reference to the column which the user is trying to receive
+    - const column = read().find() --> read from the local storage
+        - we will get an array from the find method below
+        - grab each column and heck is the column.Id equal to the column Id is being passed into
+        - if so, it is going to find it and put it inside the const.
+    - column Id is in the read function, i.e. code line 32
+    - if (!column) {return [];} --> if there's no column:
+        - return an empty array
+    - return column.items; --> if item is found, then all is good and return that items array
 */
 
 function read(){
