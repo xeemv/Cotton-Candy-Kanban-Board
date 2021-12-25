@@ -1,4 +1,4 @@
-# Kanban-Board
+# Cotton-Candy-Kanban-Board
 
 
 
@@ -86,7 +86,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-- background-image: url ( 'images/drinks.png' );
+- background-image: url ( 'images/sky.png' );
 > used this style in my CSS style sheet to place a background image on my website
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -141,7 +141,7 @@ I'm currently in week 4 of my front-end software coding bootcamp and found that 
 
 Xee M. V. - xeeyang08@gmail.com
 
-Project Link: [https://github.com/xeemv/Kanban-Board](https://xeemv.github.io/Kanban-Board/)
+Project Link: [https://github.com/xeemv/Cotton-Candy-Kanban-Board](https://xeemv.github.io/Cotton-Candy-Kanban-Board/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
