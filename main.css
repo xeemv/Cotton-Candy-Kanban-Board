@@ -14,7 +14,7 @@
     display: flex; /* using flex here to create the 3 column layout */
     padding: 30px;
     width: 750px;
-    background: #009578;
+    background: #8e5ec5;
     border-radius: 5px;
 }   
 .kanban__column{
@@ -28,13 +28,13 @@
 .kanban__column-title{
     margin-bottom: 20px; 
 	font-size: 30px;
-	color: white;
+	color: black; /* the title words will be black, in the video it was white */
 	user-select: none; /* to prevent accidental highlight when selecting the content inside your items */
 }
 .kanban__item-input{
     padding: 10px 15px;
     box-sizing: border-box; /* to prevent it from going over its boundaries */
-    background: white;
+    background: rgb(250, 212, 217); /* the background for "wash the dishes"/input will be a very light pink*/
     border-radius: 5px;
     cursor: pointer; /* to inform the user they can click and drag these items */
 }
@@ -54,7 +54,7 @@
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
-	color: white;
+	color: black; /* the word "+ add" will be black*/
 	background: rgba(0, 0, 0, 0.1);
 	border: none;
 	border-radius: 5px;
