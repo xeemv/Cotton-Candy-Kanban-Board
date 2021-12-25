@@ -11,6 +11,21 @@ export default class kanbanAPI{
         }
         return column.items;
     }
+    static insertItem(columnId, content){
+        const data = read();
+        const column = data().find(column => column.id == columnId);
+        const item = {
+            id: Math.floor(Math.random() * 1000000),
+            content /* would be content: content, but the short hand method is just "content"*/
+        };
+
+        if (!column) {
+            throw new Error("Column does not exist.");
+        }
+
+        column.items.push(item);
+        save(data);
+    }
 }
 /* 
 - code line 5 
@@ -29,6 +44,22 @@ export default class kanbanAPI{
     - if (!column) {return [];} --> if there's no column:
         - return an empty array
     - return column.items; --> if item is found, then all is good and return that items array
+    - static insertItem(columnId, content){ -->
+        - this is so that when you are inserting an item here, you need to know what the column id is
+        - const data = read(); --> this will read the data and help find the column which the user is trying to insert into
+        - const column = data().find(column => column.id == columnId);
+            - this part will be saving the data const into the local storage
+            - basically saying data. find (get me) the column wiht the same id which we are passing into the method here
+    - const item = { --> the new item to be inserted
+        - id: Math.floor(Math.random() * 1000000), --> 
+            - this is going to generate a random Id using this method times 1million
+            - usually in a real world application, you would generate this id on the server side
+                - for this project, we will use client-side javascript
+        - content --> w.e the user passes in
+    - if (!column) {} --> if the column doesn't exist, an error message will be thrown out
+    -  column.items.push(item); --> everything goes well and the column does exist
+        - add that item to the bottom of the list
+    - save(data); --> this will save the data back to the local storage
 */
 
 function read(){
