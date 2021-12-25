@@ -149,7 +149,7 @@ Project Link: [https://github.com/xeemv/Kanban-Board](https://xeemv.github.io/Ka
 
 * <a href="https://webplatform.github.io/docs/css/functions/url/">CSS images: url() - WebPlateforms Doc</a>
 * <a href="https://www.webfx.com/blog/web-design/responsive-background-image/">CSS How to Create a Responsive Full Background Image Using CSS [Tutorial]</a>
-* <a href="https://www.youtube.com/watch?v=ijQ6dCughW8">dcode. This tutorial is called "How to Build a Kanban Board with JavaScript (No Frameworks)"</a>
+* <a href="https://www.youtube.com/watch?v=ijQ6dCughW8">Content creater is dcode. This tutorial is called "How to Build a Kanban Board with JavaScript (No Frameworks)"</a>
 * <a href="http://mattkersley.com/responsive/">Responsive Web Design Testing Tool</a>
 * <a href="https://www.canva.com/photos/free/">Canva free stock photos</a>
 * <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a>
