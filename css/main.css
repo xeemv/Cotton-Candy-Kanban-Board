@@ -1,18 +1,62 @@
-/*{
+*{
     box-sizing: border-box;
-    /*background: linear-gradient(to right, #ff105f, #ffad06); /* took this from my login-form. No longer using this as I found a beautiful background img.
-    background-image: url(images/sky.png);
-    background-size: cover; /*This property/value pair tells the browser to scale the background image proportionally so that its width and height are equal to, or greater than, the width/height of the element. - Per https://www.webfx.com/blog/web-design/responsive-background-image/ 
-    background-position-x: center; 
-    background-position-y: center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat; 
-    /* codes from line 5 to 10 are taken from my tip calculator project
-}*/
+    /*background: linear-gradient(to right, #ff105f, #ffad06); /* took this from my login-form. No longer using this as I found a beautiful background img.*/
+    background-image: url(/images/sky.png);
+    background-size: cover; /*This property/value pair tells the browser to scale the background image proportionally so that its width and height are equal to, or greater than, the width/height of the element. - Per https://www.webfx.com/blog/web-design/responsive-background-image/ */
+    background-position-x: center; /*incase the img gets scaled up and get distorted (height and width), this will keep it center*/
+    background-position-y: center; /*incase the img gets scaled up and get distorted (height and width), this will keep it center*/
+    background-attachment: fixed; /*to prevent the photo from scrolling on the page or img ending before page does*/
+    background-repeat: no-repeat; /*to prevent the photo from repeating on the screen*/
+    /* codes from line 5 to 10 are taken from my tip calculator/expanding card project*/
+    font-family: 'Shadows Into Light', cursive;
+}
 .kanban {
     display: flex; /* using flex here to create the 3 column layout */
     padding: 30px;
     width: 750px;
     background: #009578;
     border-radius: 5px;
+}   
+.kanban__column{
+    flex: 1;
+    /* this will ensure every column has an equal width*/
+}
+.kanban__column:not(:last-child){
+ /* this is basically saying that every single column that isn't the last one, is going to have a margin right. */
+    margin-right: 30px;
+}
+.kanban__column-title{
+    margin-bottom: 20px; 
+	font-size: 30px;
+	color: white;
+	user-select: none; /* to prevent accidental highlight when selecting the content inside your items */
+}
+.kanban__item-input{
+    padding: 10px 15px;
+    box-sizing: border-box; /* to prevent it from going over its boundaries */
+    background: white;
+    border-radius: 5px;
+    cursor: pointer; /* to inform the user they can click and drag these items */
+}
+.kanban__dropzone {
+	height: 10px;
+	transition: background 0.15s, height 0.15s; 
+    /* 
+    - this is so that when the user drags an item over the drop zone 
+    - we need to change the background color and height 
+    - this will tell them they could drop that item here*/
+}
+.kanban__dropzone--active { /* this part will need js to add an active modifier class to the dropzone element */
+	height: 20px;
+	background: rgba(0, 0, 0, 0.25);
+}
+.kanban__add-item {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: white;
+	background: rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }

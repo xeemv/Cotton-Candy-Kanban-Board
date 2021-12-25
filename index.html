@@ -12,7 +12,7 @@
     <div class="kanban__column"> <!-- represent a single column on the board-->
     <div class="kanban__column-title">Not Started</div> <!-- represent a title for said column on the board-->
     <div class="kanban__items"> <!-- to store items we drop down in that column on the board-->
-    <div contenteditable="" class="kanban__item-input">Wash the dishes</div> 
+    <div contenteditable class="kanban__item-input">Wash the dishes</div> 
     <!-- 
         - line 15 is the area that the user could edit.
         - contenteditable will allow users to make edits to that input section 
@@ -23,7 +23,9 @@
         - it will highlight the area above and below where the user will drop the item.
     -->
     </div>
-    <button class="kanban__add-item type="button">+ Add</button> <!-- - adding a button to the column using type="button" and the name on the button will be "+ add".
+    <button class="kanban__add-item" type="button">+ Add</button> 
+    <!-- 
+    - adding a button to the column using type="button" and the name on the button will be "+ add".
     - code line 11 - 20 is the basic structure on the kanban board.-->
     
     </div>
