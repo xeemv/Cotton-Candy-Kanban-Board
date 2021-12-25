@@ -1,4 +1,11 @@
 *{
     box-sizing: border-box;
-    background: linear-gradient(to right, #ff105f, #ffad06); /* took this from my login-form*/
+    /*background: linear-gradient(to right, #ff105f, #ffad06); /* took this from my login-form. No longer using this as I found a beautiful background img.*/
+    background-image: url(images/sky.png);
+    background-size: cover; /*This property/value pair tells the browser to scale the background image proportionally so that its width and height are equal to, or greater than, the width/height of the element. - Per https://www.webfx.com/blog/web-design/responsive-background-image/ */
+    background-position-x: center; /*incase the img gets scaled up and get distorted (height and width), this will keep it center*/
+    background-position-y: center; /*incase the img gets scaled up and get distorted (height and width), this will keep it center*/
+    background-attachment: fixed; /*to prevent the photo from scrolling on the page or img ending before page does*/
+    background-repeat: no-repeat; /*to prevent the photo from repeating on the screen*/
+    /* codes from line 5 to 10 are taken from my tip calculator project*/
 }
