@@ -16,6 +16,7 @@
     width: 750px;
     background: #8e5ec5;
     border-radius: 5px;
+    margin: 0;
 }   
 .kanban__column{
     flex: 1;
