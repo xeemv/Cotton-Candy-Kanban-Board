@@ -15,7 +15,7 @@ export default class kanbanAPI{
         const data = read();
         const column = data.find(column => column.id == columnId);
         const item = {
-            id: Math.floor(Math.random() * 1000000),
+            id: Math.floor(Math.random() * 100000),
             content /* would be content: content, but the short hand method is just "content"*/
         };
 
@@ -34,9 +34,27 @@ export default class kanbanAPI{
         const [item, currentColumn] = (()=> {
             for (const column of data) {
                 const item = column.items.find(item => item.id == itemId);
+
+                if (item) {
+                    return [item, column];
+                }
             }
-        })
+        }) ();
+        console.log(item, currentColumn);
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
 }
 /* 
 - code line 5 
@@ -81,6 +99,11 @@ export default class kanbanAPI{
             - the item inside the parantheses is different from the const item
             - it is a loop to check is the item being looked at has the same id
                 - if it does, it will retun it into the const item
+        - code lin 38 and 39, if (item) { return [item, column];}
+            - this means when you call the updated item method, you will reeive the item object and current column it is in
+
+
+
 */
 
 function read(){

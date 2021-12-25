@@ -19,4 +19,32 @@ import kanbanAPI from "./api/kanbanAPI.js";
     - console printed: Object { id: 154128, content: "I am new!" }
                         content: "I am new!"
 ​                       id: 154128
+- first updateItem test:
+    - kanbanAPI.updateItems(412715);
+        - How it will look printed in the console:
+            Object { id: 412715, content: "I am new!" }
+            content: "I am new!"
+            id: 412715
+            <prototype>: Object { … }
+        ** code line 25 - 28 is the item you are changing based on the id
+        ** code line 31- 45 is the actual column object containing the id of the column
+        - along w/ the list of all the current items inside the column including the item we are trying to update   
+            Object { id: 2, items: (11) […] }
+            id: 2
+            items: Array(11) [ {…}, {…}, {…}, … ]
+            0: Object { id: 412715, content: "I am new!" }
+            1: Object { id: 880568, content: "I am new!" }
+            2: Object { id: 307810, content: "I am new!" }
+            3: Object { id: 782637, content: "I am new!" }
+            4: Object { id: 960053, content: "I am new!" }
+            5: Object { id: 154128, content: "I am new!" }
+            6: Object { id: 201154, content: "I am new!" }
+            7: Object { id: 765877, content: "I am new!" }
+            8: Object { id: 670496, content: "I am new!" }
+            9: Object { id: 702978, content: "I am new!" }
+            10: Object { id: 424485, content: "I am new!" }
+            length: 11
+
+
 */
+
