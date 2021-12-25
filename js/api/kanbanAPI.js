@@ -13,7 +13,7 @@ export default class kanbanAPI{
     }
     static insertItem(columnId, content){
         const data = read();
-        const column = data().find(column => column.id == columnId);
+        const column = data.find(column => column.id == columnId);
         const item = {
             id: Math.floor(Math.random() * 1000000),
             content /* would be content: content, but the short hand method is just "content"*/
@@ -25,6 +25,17 @@ export default class kanbanAPI{
 
         column.items.push(item);
         save(data);
+
+        return item;
+    }
+
+    static updateItems(itemId, newProps){
+        const data = read();
+        const [item, currentColumn] = (()=> {
+            for (const column of data) {
+                const item = column.items.find(item => item.id == itemId);
+            }
+        })
     }
 }
 /* 
@@ -60,6 +71,16 @@ export default class kanbanAPI{
     -  column.items.push(item); --> everything goes well and the column does exist
         - add that item to the bottom of the list
     - save(data); --> this will save the data back to the local storage
+    - return item; --> return the newly created item
+    - static updateItems(itemId, newProps){ --> the update method
+        - passing through an item id
+        - we are going to update the second property/second parameter
+        - using newProps object --> going to contain the info to update for this item
+            - could include: color, position, the content itself
+        - code line 36, const item = column.items.find(item => item.id == itemId);
+            - the item inside the parantheses is different from the const item
+            - it is a loop to check is the item being looked at has the same id
+                - if it does, it will retun it into the const item
 */
 
 function read(){
