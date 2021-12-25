@@ -44,7 +44,12 @@ import kanbanAPI from "./api/kanbanAPI.js";
             9: Object { id: 702978, content: "I am new!" }
             10: Object { id: 424485, content: "I am new!" }
             length: 11
-
+- first targetColumn test:
+    - kanbanAPI.updateItems(412715);
 
 */
-
+kanbanAPI.updateItem(412715, {
+    columnId: 1,
+    position: 0,
+    content: "I've changed."
+});

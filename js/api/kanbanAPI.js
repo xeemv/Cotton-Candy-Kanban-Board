@@ -29,9 +29,9 @@ export default class kanbanAPI{
         return item;
     }
 
-    static updateItems(itemId, newProps){
+    static updateItem(itemId, newProps){
         const data = read();
-        const [item, currentColumn] = (()=> {
+        const [item, currentColumn] = (() => {
             for (const column of data) {
                 const item = column.items.find(item => item.id == itemId);
 
@@ -40,20 +40,41 @@ export default class kanbanAPI{
                 }
             }
         }) ();
-        console.log(item, currentColumn);
+        
+
+        if (!item) {
+            throw new Error("Item not found.");
+        }
+
+        item.content = newProps.content === undefined ? item.content : newProps.content;
+        /* 
+        - if we are providing the content property inside the new props parameter or argument
+        - we can just say it is equal to undefined
+        - it would be user/our bad and for the local storage to use our current value 
+        - or say new props.content
+        */
 
 
+        // update column and position for the drag and drop
+        if (
+            newProps.columnId !== undefined
+            && newProps.position !== undefined
+        ) {
+            const targetColumn = data.find(column => column.id == newProps.columnId);
+            
 
+            if (!targetColumn){
+                throw new Error("Target column not found.");
+            }
 
+            // delete the item from it's current column by telling it to splice 1
+            currentColumn.items.splice(currentColumn.items.indexOf(item), 1);
 
-
-
-
+            // move item to it's new column and position
+            targetColumn.items.splice(newProps.position, 0, item);
+        }
+        save(data);
     }
-
-
-
-
 
 }
 /* 
@@ -101,6 +122,16 @@ export default class kanbanAPI{
                 - if it does, it will retun it into the const item
         - code lin 38 and 39, if (item) { return [item, column];}
             - this means when you call the updated item method, you will reeive the item object and current column it is in
+    - code line 50-62:
+        -    if (
+            newProps.columnId !== undefined
+            && newProps.position !== undefined
+        )
+            - the position in this part is just referring to the column itself 
+                - basically between 0 and the amount of items inside your column
+    - code line 63:
+            - const targetColumn = data.find(column => column.id == newProps.columnId);
+            - we are saying that if the column id matches the new props column id, then we have the targeted column
 
 
 
