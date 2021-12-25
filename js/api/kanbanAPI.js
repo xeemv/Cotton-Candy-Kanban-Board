@@ -34,15 +34,30 @@ function read(){
             },
         ];
     }
-}
-/* 
+    /* 
 - to read from the local storage directly
-- const json = localStorage.getItem("kanban-data"); --> to get the items of kanban dash data
+- const json = localStorage.getItem("kanban-data");
+    - to get the items of kanban dash data
 - if (!json) ---> this means if this is the user's first time in their browser
     - return the default data:
         - will need 3 columns (code line 18)
             - id: 1 --> the in progress column which will contain an empty items array
         - now copy and paste the id & items to make additional columns w/ different names
             - video made only 3, I'm making 4
-- default data is code line 18 - 35
+    - default data is code line 18 - 35 and will load when the user is loading the kanban board for the first time
+*/
+    return JSON.parse(json);
+    /* 
+    - this section is when the user is returning to their session or their board
+    */
+}
+
+function save(data){
+    localStorage.setItem("kanban-data", JSON.stringify(data));
+}
+/* 
+- this is the save function starting at code line 54
+- the purpose is of this function is returning the data from function read
+- localStorage.setItem("kanban-data", JSON.stringify(data));
+    - is saying that the local storage will pass through the kanban data through to the JSON stringify then the data and finally save that data.
 */
