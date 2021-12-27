@@ -1,5 +1,6 @@
+/*
 import kanbanAPI from "./api/kanbanAPI.js";
-/* 
+ 
 - importing the api class file
 - import kanbanAPI from "./api/kanbanAPI."; --> how it will import like
     - ** you must add .js at the of the ./api/kanbanAPI part. **
@@ -62,4 +63,8 @@ import kanbanAPI from "./api/kanbanAPI.js";
         - will not see this item in the local storage anymore
 */
 
+import Kanban from "./view/Kanban.js";
 
+new Kanban(
+    document.querySelector('.kanban')
+);

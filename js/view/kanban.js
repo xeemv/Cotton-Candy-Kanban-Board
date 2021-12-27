@@ -3,16 +3,26 @@
     - what the user will interact with
 */
 
-export default class kanban {
+/* 
+- import columns file into this file using code line 5
+*/
+
+
+import Column from "./Columns.js";
+
+export default class Kanban {
     constructor(root) {
         this.root = root;
 
 
-        kanban.columns().forEach(column => {
+        Kanban.columns().forEach(column => {
             /* todo: create an instance of column class
                 - basically this means that we need to have a new javascript class to define the user interface for an individual column that is displayed to the user.
                 - this will be done by creating a new js file called Columns.js
             */
+           const columnView = new Column(column.id, column.title);
+
+           this.root.appendChild(columnView.elements.root); 
         });
     }
 
@@ -23,17 +33,15 @@ export default class kanban {
                 title: "Not Started"
             },
             {
-                id: 1,
+                id: 2,
                 title: "In Progress"
             },
             {
-                id: 1,
+                id: 3,
                 title: "Completed"
             },
-        ]
+        ];
     }
-
-
 }
 
 /*
@@ -46,10 +54,13 @@ export default class kanban {
     - this.root = root; -->
         - just to keep a reference
 
-- code line 11:
+- code line 26:
     - static method called columns that will return the array of every column the user has
         - along w/ the name and title
     - ** Per tutorial, it was mentioned that it would be better to retrieve the title from the server side
         - however, we are keeping it simple using the data stored in the local server **
 
+- code line 22:
+    - this.root.appendChild(columnView.elements.root); -->
+        - this is regarding the main container on the html file div tag
 */
