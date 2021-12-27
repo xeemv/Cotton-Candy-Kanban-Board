@@ -8,7 +8,7 @@
 */
 
 
-import Column from "./Columns.js";
+import Column from "./Column.js";
 
 export default class Kanban {
     constructor(root) {
