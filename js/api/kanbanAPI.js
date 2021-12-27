@@ -76,6 +76,19 @@ export default class kanbanAPI{
         save(data);
     }
 
+    static deleteItem(itemId){
+        const data = read();
+
+        for (const column of data) {
+            const item = column.items.find(item => item.id == itemId);
+
+            if (!item) {
+                column.item.splice(column.items.indexOf(item), 1);
+            }
+        }
+        save(data);
+    }
+
 }
 /* 
 - code line 5 
@@ -136,7 +149,7 @@ export default class kanbanAPI{
             - if it does, it will retun it into the const item
         
 
-- code lin 38 and 39, if (item) { return [item, column];}
+- code line 38 and 39, if (item) { return [item, column];}
     - this means when you call the updated item method, you will reeive the item object and current column it is in
     
     
@@ -153,6 +166,15 @@ export default class kanbanAPI{
     - const targetColumn = data.find(column => column.id == newProps.columnId);
     - we are saying that if the column id matches the new props column id, then we have the targeted column
 
+- code line 79:
+    - static deleteItem(itemId){ -->
+        - delete an item
+        - will include a for loop:
+            - for (const column of data) { -->
+                - this will find the item by it's id
+                - if no item is found, mention that
+            - use this code: const item = column.items.find(item => item.id == itemId); ---> 
+                - code was from the static updateItem section, code line 36 
 
 
 */
