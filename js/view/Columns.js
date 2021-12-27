@@ -6,10 +6,10 @@
 export default class Column {
     constructor (id, title) {
         this.elements = {};
-        this.elements.root = Column.createRoot();
-        this.elements.title = this.elements.root.querySelector(".kanban__column-title");
-        this.elements.items = this.elements.root.querySelector(".kanban__column-items");
-        this.elements.addItem = this.elements.root.querySelector(".kanban__column-add-item");
+		this.elements.root = Column.createRoot();
+		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
+		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
+		this.elements.addItem = this.elements.root.querySelector(".kanban__add-item");
     }
 
 
@@ -25,7 +25,7 @@ export default class Column {
                 <div class="kanban__column-items"></div>
                 <button class="kanban__add-item" type="button">+ Add</button> 
             </div>
-        `).chidren[0];
+        `) .chidren[0];
     }
 }
 

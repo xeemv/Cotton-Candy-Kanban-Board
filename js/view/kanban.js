@@ -27,7 +27,7 @@ export default class Kanban {
     }
 
     static columns(){
-        return[
+        return [
             {
                 id: 1,
                 title: "Not Started"
