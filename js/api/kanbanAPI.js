@@ -84,19 +84,29 @@ export default class kanbanAPI{
 - will contain functions to interact w/ the local storage directly
 - code line 5:
     - dealing with the api that will be getting all of the items inside a particular column
+    
+- code line 6:
     - static getItems(columnId){} --> static will get items then pass through column Id 
-        - this will simply get a reference to the column which the user is trying to receive
+    - this will simply get a reference to the column which the user is trying to receive
+    
+- code line 7:
     - const column = read().find() --> read from the local storage
-        - we will get an array from the find method below
-        - grab each column and heck is the column.Id equal to the column Id is being passed into
-        - if so, it is going to find it and put it inside the const.
+    - we will get an array from the find method below
+    - grab each column and heck is the column.Id equal to the column Id is being passed into
+    - if so, it is going to find it and put it inside the const.
     - column Id is in the read function, i.e. code line 32
+    
+- code line 9 - 11:    
     - if (!column) {return [];} --> if there's no column:
         - return an empty array
+    
+- code line 12:
     - return column.items; --> if item is found, then all is good and return that items array
+    
+- code line 14:
     - static insertItem(columnId, content){ -->
-        - this is so that when you are inserting an item here, you need to know what the column id is
-        - const data = read(); --> this will read the data and help find the column which the user is trying to insert into
+        - this is so that when you are inserting an item here, you need to know what the column id is 
+    - const data = read(); --> this will read the data and help find the column which the user is trying to insert into
         - const column = data().find(column => column.id == columnId);
             - this part will be saving the data const into the local storage
             - basically saying data. find (get me) the column wiht the same id which we are passing into the method here
@@ -111,27 +121,37 @@ export default class kanbanAPI{
         - add that item to the bottom of the list
     - save(data); --> this will save the data back to the local storage
     - return item; --> return the newly created item
+    
+- code line 32:    
     - static updateItems(itemId, newProps){ --> the update method
         - passing through an item id
         - we are going to update the second property/second parameter
         - using newProps object --> going to contain the info to update for this item
             - could include: color, position, the content itself
-        - code line 36, const item = column.items.find(item => item.id == itemId);
-            - the item inside the parantheses is different from the const item
-            - it is a loop to check is the item being looked at has the same id
-                - if it does, it will retun it into the const item
-        - code lin 38 and 39, if (item) { return [item, column];}
-            - this means when you call the updated item method, you will reeive the item object and current column it is in
-    - code line 50-62:
-        -    if (
+
+
+- code line 36, const item = column.items.find(item => item.id == itemId);
+        - the item inside the parantheses is different from the const item
+        - it is a loop to check is the item being looked at has the same id
+            - if it does, it will retun it into the const item
+        
+
+- code lin 38 and 39, if (item) { return [item, column];}
+    - this means when you call the updated item method, you will reeive the item object and current column it is in
+    
+    
+- code line 50-62:
+    -    if (
             newProps.columnId !== undefined
             && newProps.position !== undefined
         )
-            - the position in this part is just referring to the column itself 
-                - basically between 0 and the amount of items inside your column
-    - code line 63:
-            - const targetColumn = data.find(column => column.id == newProps.columnId);
-            - we are saying that if the column id matches the new props column id, then we have the targeted column
+        - the position in this part is just referring to the column itself 
+            - basically between 0 and the amount of items inside your column
+
+
+- code line 63:
+    - const targetColumn = data.find(column => column.id == newProps.columnId);
+    - we are saying that if the column id matches the new props column id, then we have the targeted column
 
 
 
