@@ -11,6 +11,8 @@ export default class kanbanAPI{
         }
         return column.items;
     }
+
+
     static insertItem(columnId, content){
         const data = read();
         const column = data.find(column => column.id == columnId);
@@ -82,8 +84,8 @@ export default class kanbanAPI{
         for (const column of data) {
             const item = column.items.find(item => item.id == itemId);
 
-            if (!item) {
-                column.item.splice(column.items.indexOf(item), 1);
+            if (item) {
+                column.items.splice(column.items.indexOf(item), 1);
             }
         }
         save(data);
@@ -194,10 +196,6 @@ function read(){
             },
             {
                 id: 3, 
-                items: []   
-            },
-            {
-                id: 4, 
                 items: []   
             },
         ];

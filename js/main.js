@@ -56,9 +56,10 @@ import kanbanAPI from "./api/kanbanAPI.js";
         position: 0,
         content: "I've changed."
     });
+
+- 1st deleteItem test:    
+    - kanbanAPI.deleteItem(412715);
+        - will not see this item in the local storage anymore
 */
-kanbanAPI.updateItem(412715, {
-    columnId: 1,
-    position: 0,
-    content: "I've changed."
-});
+
+
