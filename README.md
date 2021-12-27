@@ -33,6 +33,8 @@
 ### About The Project
 
 Personal Kanban Board project I created during the two week holiday break from my coding bootcamp. 
+<p>
+For this project, dcode demonstrated how to use the local storage and JavaScript to store the data.  This is new to me and very informative. I did include a lot of comments and notes within my .js files that I felt would be beneficial for me to reference again should I attempt to expand on the this project down the road.</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

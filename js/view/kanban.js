@@ -11,6 +11,7 @@ export default class kanban {
         kanban.columns().forEach(column => {
             /* todo: create an instance of column class
                 - basically this means that we need to have a new javascript class to define the user interface for an individual column that is displayed to the user.
+                - this will be done by creating a new js file called Columns.js
             */
         });
     }
