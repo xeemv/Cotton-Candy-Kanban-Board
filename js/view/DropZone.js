@@ -3,6 +3,8 @@
 - also see it in the html file, code line 28, the kanban drop zone
 */
 
+import KanbanAPI from "../api/KanbanAPI.js";
+
 export default class DropZone{
     static createDropZone() {
         const range = document.createRange();
@@ -36,10 +38,22 @@ export default class DropZone{
             const droppedIndex = dropZoneInColumn.indexOf(dropZone);
             const itemId = Number(e.dataTransfer.getData("Text/plain"));
             const droppedItemElement = document.querySelector(`[data-id="${itemId}"]`);
-            //const ins
+            const insertAfter = dropZone.parentElement.classList.contains("kanban__item") ? dropZone.parentElement : dropZone;
 
 
-            console.log(droppedItemElement);
+            if (droppedItemElement.contains(dropZone)){
+                return;
+            }
+
+          
+            insertAfter.after(droppedItemElement);
+            KanbanAPI.updateItem(itemId, {
+                columnId,
+                position: droppedIndex
+            });
+
+
+            //console.log(droppedItemElement);
             // test this by doing: console.log(columnElement, columnId);
             // the result in the console is: <div class="kanban__column" data-id="2"> 2 DropZone.js:36:21
             // testing console.log(droppedItemElement);
@@ -74,6 +88,31 @@ export default class DropZone{
 - code line 37:
     - const itemId = Number(e.dataTransfer.getData("Text/plain")); -->
         - this will get you the item Id from the item.js file
+
+- code line 44 - 46:
+    - KanbanAPI.updateItem(itemId, {
+                columnId,
+                position: droppedIndex
+            }); --->
+    - having the api call to update the item
+
+- code line 41:
+    - const insertAfter = dropZone.parentElement.classList.contains("kanban__item") ? dropZone.parentElement : dropZone; -->
+        - this code is to check if drop zone is part of your kanban item
+        - it will want to check if item is from the item.js file
+            - const bottomDropZone = DropZone.createDropZone(); ----> code line 6
+            - if it is, you will need to append that parentElement
+        - this code will insert after the parent
+            - aka after the kanban item itself
+
+- code line 44:
+    - if (droppedItemElement.contains(dropZone)){
+                return;
+            } --->
+        - this is created to prevent bugs
+        - if an item is drag into its own drop zone, we are going to do nothing
+        - we do not need to update the api again
+
 
 */
 

@@ -30,14 +30,18 @@ export default class Kanban {
         return [
             {
                 id: 1,
-                title: "Not Started"
+                title: "Brain Board"
             },
             {
                 id: 2,
-                title: "In Progress"
+                title: "Not Started"
             },
             {
                 id: 3,
+                title: "In Progress"
+            },
+            {
+                id: 4,
                 title: "Completed"
             },
         ];

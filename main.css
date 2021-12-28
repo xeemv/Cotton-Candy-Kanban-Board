@@ -12,11 +12,12 @@
 }
 .kanban {
     display: flex; /* using flex here to create the 3 column layout */
-    padding: 30px;
+    padding: 4px;
     width: 750px;
     background: #8e5ec5;
     border-radius: 5px;
     margin: auto; /* tutorial had this set to 0, I changed it to auto per my expanding card project to center this*/
+    min-height: 100vh;
 }   
 .kanban__column{
     flex: 1;
@@ -24,7 +25,7 @@
 }
 .kanban__column:not(:last-child){
  /* this is basically saying that every single column that isn't the last one, is going to have a margin right. */
-    margin-right: 30px;
+    margin-right: 5px;
 }
 .kanban__column-title{
     margin-bottom: 20px; 
@@ -37,9 +38,12 @@
     padding: 10px 15px;
     box-sizing: border-box; /* to prevent it from going over its boundaries */
     background: rgb(250, 212, 217); /* the background for "wash the dishes"/input will be a very light pink*/
-    border-radius: 5px;
+    border-radius: 10px; /* tutorial was 5*/
     cursor: pointer; /* to inform the user they can click and drag these items */
     text-align: center; /* I added this as tutorial did not have this*/
+}
+.kanban__item-input:hover{
+    background-color: rgb(243, 165, 217);
 }
 .kanban__dropzone {
 	height: 10px;
@@ -52,6 +56,7 @@
 .kanban__dropzone--active { /* this part will need js to add an active modifier class to the dropzone element */
 	height: 20px;
 	background: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
 .kanban__add-item {
 	width: 100%;
@@ -59,15 +64,18 @@
 	font-size: 16px;
 	color: black; /* the word "+ add" will be black*/
 	background: rgba(0, 0, 0, 0.1);
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+	border: 20px;
+	border-radius: 10px;
+	cursor: pointer
+}
+.kanban__add-item:hover{
+    background-color: rgb(198, 149, 243);
 }
 @media(max-width:480px){ /* if the device screen is smaller than 480px  */
     .kanban{
         width: 100vw;
     }
-    .panel:nth-last-of-type(5),.panel:nth-last-of-type(6){ /* how many photos do we want to display  */
+    .panel:nth-last-of-type(4),.panel:nth-last-of-type(5){ /* how many photos do we want to display  */
         display: none;
     }
 }
