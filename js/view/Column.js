@@ -10,6 +10,14 @@ export default class Column {
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.addItem = this.elements.root.querySelector(".kanban__add-item");
+
+
+        this.elements.root.dataset.id = id;
+        this.elements.title.textContent = title;
+
+        this.elements.addItem.addEventListener("click", () => {
+            // Todo: add item
+        })
     }
 
 
@@ -66,4 +74,17 @@ export default class Column {
     - this.elements.title = this.elements.root.querySelector(".kanban__column-title/items/add-item"); -->
         - basically we are calling the query selector on the root itself
         - it is only for this local column (code line 21-25) and not the whole document
+
+- code line 15:
+    - this.elements.root.dataset.id = id; -->
+        - this will help identify which column id it is
+        - will be useful later on when dragging and dropping
+
+- code line 16:
+    - this.elements.title.textContent = title; -->
+        - this will display the title of each column
+
+- code line 18:
+    - this.elements.addItem.addEventListener("click", () => {}) --->
+        - a way to display every single item that appears under the column
 */
