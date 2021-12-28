@@ -1,3 +1,5 @@
+import KanbanAPI from "../api/KanbanAPI.js";
+
 export default class Item{
     constructor (id, content) {
         this.elements = {};
@@ -13,12 +15,31 @@ export default class Item{
         const onBlur = () => {
             const newContent = this.elements.input.textContent.trim();
 
-            console.log(this.content);
-            console.log(newContent);
+            // console.log(this.content);
+            // console.log(newContent);
+            if (newContent == this.content) {
+                return;
+            }
+
+            this.content = newContent;
+
+            KanbanAPI.updateItem(id, {
+                content: this.content
+            });
         };
 
 
         this.elements.input.addEventListener("blur", onBlur);
+        this.elements.root.addEventListener("dblclick", () => {
+            const check = confirm("Are you sure you want to delete this item?");
+            
+            if (check){
+                KanbanAPI.deleteItem(id);
+
+                this.elements.input.removeEventListener("blur", onBlur);
+                this.elements.root.parentElement.removeChild(this.elements.root);
+            }
+        });
     }
 
     static createRoot(){
@@ -51,4 +72,21 @@ export default class Item{
 - code line 13:
     - const onBlur = () => { ---->
         - this will give the user the ability to update the content of a single item
+
+- code line 15:
+    - const onBlur = () => {
+            const newContent = this.elements.input.textContent.trim(); -->
+        - all this is to add new text input into the +add sections under each column
+
+- code line 33:
+    - this.elements.root.addEventListener("dbclick", () => { -->
+        - this is to delete the input
+
+- code line 40:
+    - this.elements.root.parentElement.removeChild(this.elements.root); -->
+        - the parentElement is the column itself
+        - the childElement is the item
+        - requesting to remove the childElement from the html
+        - this will remove it visually
+        - w/o it, it will only be removed from the local storage
 */
