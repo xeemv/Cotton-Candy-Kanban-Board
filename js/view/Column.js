@@ -3,6 +3,8 @@
     - see mention of this on the kanban.js file; code line 11
 */
 
+import KanbanAPI from "../api/kanbanAPI.js";
+
 export default class Column {
     constructor (id, title) {
         this.elements = {};
@@ -17,7 +19,9 @@ export default class Column {
 
         this.elements.addItem.addEventListener("click", () => {
             // Todo: add item
-        })
+        });
+
+        KanbanAPI
     }
 
 
