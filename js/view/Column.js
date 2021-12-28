@@ -3,7 +3,7 @@
     - see mention of this on the kanban.js file; code line 11
 */
 
-import KanbanAPI from "../api/kanbanAPI.js";
+import KanbanAPI from "../api/KanbanAPI.js";
 
 export default class Column {
     constructor (id, title) {
@@ -21,7 +21,9 @@ export default class Column {
             // Todo: add item
         });
 
-        KanbanAPI
+        KanbanAPI.getItems(id).forEach(item => {
+            console.log(item);
+        });
     }
 
 
