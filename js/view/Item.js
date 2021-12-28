@@ -1,7 +1,11 @@
 import KanbanAPI from "../api/KanbanAPI.js";
+import DropZone from "./DropZone.js";
 
 export default class Item{
     constructor (id, content) {
+        const bottomDropZone = DropZone.createDropZone();
+
+
         this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
@@ -10,6 +14,7 @@ export default class Item{
 		this.elements.root.dataset.id = id;
 		this.elements.input.textContent = content;
 		this.content = content;
+        this.elements.root.appendChild(bottomDropZone);
 
 
         const onBlur = () => {
@@ -40,6 +45,14 @@ export default class Item{
                 this.elements.root.parentElement.removeChild(this.elements.root);
             }
         });
+
+        this.elements.root.addEventListener("dragstart", e => {
+            e.dataTransfer.setData("text/plain", id);
+        });
+
+        this.elements.input.addEventListener("drop", e=> {
+            e.preventDefault();
+        });
     }
 
     static createRoot(){
@@ -69,6 +82,10 @@ export default class Item{
     - this.elements.input = this.elements.root.querySelector(".kanban__item-input"); -->
         - is the kanban item input to get a reference to that particular html element
 
+- code line 6:
+    - const bottomDropZone = DropZone.createDropZone(); -->
+        - this will create a drop zone underneath every single item
+
 - code line 13:
     - const onBlur = () => { ---->
         - this will give the user the ability to update the content of a single item
@@ -77,6 +94,11 @@ export default class Item{
     - const onBlur = () => {
             const newContent = this.elements.input.textContent.trim(); -->
         - all this is to add new text input into the +add sections under each column
+
+- code line 17:
+        - this.elements.root.appendChild(bottomDropZone); -->
+            - this creates a space between current items and the "+ add"
+                - the drop zone space
 
 - code line 33:
     - this.elements.root.addEventListener("dbclick", () => { -->
@@ -89,4 +111,13 @@ export default class Item{
         - requesting to remove the childElement from the html
         - this will remove it visually
         - w/o it, it will only be removed from the local storage
+
+- code line 45:
+    - e.dataTransfer.setdata("text/plain", id); -->
+        - text in this part means the item id
+
+- code line 48:
+    - this.elements.input.addEventListener("drop", e=> {
+            e.preventDefault(); -->
+        - this is just to prevent the text from appearing inside the input field by accident
 */

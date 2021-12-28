@@ -16,7 +16,7 @@
     width: 750px;
     background: #8e5ec5;
     border-radius: 5px;
-    margin: 0;
+    margin: auto; /* tutorial had this set to 0, I changed it to auto per my expanding card project to center this*/
 }   
 .kanban__column{
     flex: 1;
@@ -31,6 +31,7 @@
 	font-size: 30px;
 	color: black; /* the title words will be black, in the video it was white */
 	user-select: none; /* to prevent accidental highlight when selecting the content inside your items */
+    text-align: center; /* I added this as tutorial did not have this*/
 }
 .kanban__item-input{
     padding: 10px 15px;
@@ -38,6 +39,7 @@
     background: rgb(250, 212, 217); /* the background for "wash the dishes"/input will be a very light pink*/
     border-radius: 5px;
     cursor: pointer; /* to inform the user they can click and drag these items */
+    text-align: center; /* I added this as tutorial did not have this*/
 }
 .kanban__dropzone {
 	height: 10px;
@@ -60,4 +62,12 @@
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+}
+@media(max-width:480px){ /* if the device screen is smaller than 480px  */
+    .kanban{
+        width: 100vw;
+    }
+    .panel:nth-last-of-type(5),.panel:nth-last-of-type(6){ /* how many photos do we want to display  */
+        display: none;
+    }
 }

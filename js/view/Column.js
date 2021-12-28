@@ -4,10 +4,13 @@
 */
 
 import KanbanAPI from "../api/KanbanAPI.js";
+import DropZone from "./DropZone.js";
 import Item from "./Item.js";
 
 export default class Column {
     constructor (id, title) {
+        const topDropZone = DropZone.createDropZone();
+
         this.elements = {};
 		this.elements.root = Column.createRoot();
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
@@ -17,6 +20,7 @@ export default class Column {
 
         this.elements.root.dataset.id = id;
         this.elements.title.textContent = title;
+        this.elements.items.appendChild(topDropZone);
 
         this.elements.addItem.addEventListener("click", () => {
             // Todo: add item
@@ -102,4 +106,10 @@ export default class Column {
 - code line 18:
     - this.elements.addItem.addEventListener("click", () => {}) --->
         - a way to display every single item that appears under the column
+
+- code line 12:
+    - const topDropZone = DropZone.createDropZone(); --> 
+        - this will allow us to create a drop zone to place an item above the very first item already in the column
+        - use code from line 23 to achieve this
+            - this.elements.items.appendChild(topDropZone);
 */
