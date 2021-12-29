@@ -63,7 +63,7 @@ import kanbanAPI from "./api/kanbanAPI.js";
         - will not see this item in the local storage anymore
 */
 
-import Kanban from "./view/Kanban.js";
+import Kanban from "./js/view/Kanban.js";
 
 new Kanban(
     document.querySelector(".kanban")
