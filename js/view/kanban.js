@@ -1,3 +1,5 @@
+import Column from "./Column.js";
+
 /*  
 - this is the view of the kanban board or the user interface
     - what the user will interact with
@@ -8,7 +10,7 @@
 */
 
 
-import Column from "./Column.js";
+
 
 export default class Kanban {
     constructor(root) {
